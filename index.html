@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朝鮮史検定3級　（全30問）※高校生レベル（全30問）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --danchong-red: #E63946;
+            --danchong-blue: #1D3557;
+            --danchong-green: #2A9D8F;
+            --danchong-yellow: #E9C46A;
+            --bg-cream: #FAF9F6;
+            --card-bg: #FFFFFF;
+            --text-main: #2B2D42;
+            --text-muted: #6C757D;
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 20px 10px;
+            background-image: 
+                radial-gradient(var(--danchong-yellow) 1px, transparent 0),
+                radial-gradient(var(--danchong-green) 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        /* Header / Banner */
+        header {
+            background: linear-gradient(135deg, var(--danchong-blue), #0f1c2e);
+            color: white;
+            padding: 30px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 6px solid var(--danchong-red);
+            margin-bottom: 20px;
+        }
+
+        header::before {
+            content: "조선역사탐구 30";
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-family: 'Gowun Batang', serif;
+            font-size: 4.5rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--danchong-red);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 0.95rem;
+            color: #E0E1DD;
+        }
+
+        /* Instructor Profile Card */
+        .instructor-card {
+            background: #FFFFFF;
+            border-radius: var(--border-radius);
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border: 1px solid #E2E8F0;
+            border-left: 6px solid var(--danchong-green);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .instructor-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: var(--danchong-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            border: 2px solid var(--danchong-yellow);
+        }
+
+        .instructor-info h2 {
+            font-size: 1.05rem;
+            color: var(--danchong-blue);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .instructor-info h2 .tag {
+            font-size: 0.75rem;
+            background-color: #E6F4F1;
+            color: var(--danchong-green);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .instructor-desc {
+            font-size: 0.88rem;
+            color: #4A5568;
+            line-height: 1.65;
+        }
+
+        .instructor-quote {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--danchong-red);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background-color: #E9ECEF;
+            height: 12px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--danchong-green), var(--danchong-yellow));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Quiz Card */
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border: 2px solid #E9ECEF;
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--danchong-red);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--danchong-blue);
+            line-height: 1.6;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background-color: #F8F9FA;
+            border: 2px solid #E9ECEF;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 0.96rem;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            line-height: 1.5;
+        }
+
+        .option-btn:hover {
+            border-color: var(--danchong-green);
+            background-color: #F0FDF4;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.correct {
+            background-color: #E8F5E9;
+            border-color: #2E7D32;
+            color: #1B5E20;
+            font-weight: 700;
+        }
+
+        .option-btn.incorrect {
+            background-color: #FFEBEE;
+            border-color: #C62828;
+            color: #B71C1C;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            transform: none;
+        }
+
+        /* Essay Input Styles */
+        .essay-container {
+            margin-top: 15px;
+        }
+
+        .essay-textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #E2E8F0;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .essay-textarea:focus {
+            border-color: var(--danchong-blue);
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .submit-essay-btn {
+            margin-top: 12px;
+            background-color: var(--danchong-green);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-essay-btn:hover {
+            background-color: #218376;
+        }
+
+        /* Explanation Box */
+        .explanation-box {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #F8F9FA;
+            border-left: 5px solid var(--danchong-blue);
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            font-size: 0.98rem;
+            margin-bottom: 8px;
+            color: var(--danchong-blue);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .explanation-text {
+            font-size: 0.92rem;
+            color: #333;
+            line-height: 1.65;
+        }
+
+        .model-answer-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            color: var(--danchong-red);
+        }
+
+        /* Navigation Buttons */
+        .nav-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .next-btn {
+            background-color: var(--danchong-blue);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: none;
+        }
+
+        .next-btn:hover {
+            background-color: var(--danchong-red);
+        }
+
+        /* Result Screen */
+        .result-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .score-display {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--danchong-red);
+            margin: 15px 0;
+        }
+
+        .result-commentary {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            text-align: left;
+            background: #F8F9FA;
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid #E9ECEF;
+            line-height: 1.7;
+        }
+
+        .restart-btn {
+            background-color: var(--danchong-green);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span>21問正解すれば合格！</span>
+        <h1>＜勝手に朝鮮史検定＞　3級　※たぶん高級部生レベル</h1>
+        <p class="subtitle">多言語史料と重層的史観から紐解く、朝鮮史の学術的探求（全30問）</p>
+    </header>
+
+    <!-- 演習監修・講師プロフィール -->
+    <div class="instructor-card">
+        <div class="instructor-avatar">史</div>
+        <div class="instructor-info">
+            <h2>演習監修・解説講師メッセージ <span class="tag">AI朝鮮史研究者</span></h2>
+            <div class="instructor-desc">
+                ハングルで書かれた原典史料はもちろんのこと、植民地期の日本語公文書や米英の英語史料にも精通する学術的・専門的な朝鮮史のプロフェッショナル。複雑な歴史構造や制度も、学生の目線に合わせて明快かつわかりやすく教えることに長けている。近現代史においては朝鮮民主主義人民共和国の「自主・反帝」の史的論理や抵抗の文脈に深い理解を示しつつも、特定のイデオロギーに偏ることなく、多角的な俯瞰的・相対的視点をもって客観的かつ構造的に歴史を解釈・講義する。
+            </div>
+            <div class="instructor-quote">
+                「ハングル・漢字・日本語・英語の史料を多角的に突き合わせ、重層的な歴史構造を、偏りのない相対的かつ俯瞰的な視野で解き明かしていきましょう。」
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="quizContainer">
+        <!-- Quiz cards injected dynamically -->
+    </div>
+
+    <div id="resultCard" class="result-card">
+        <h2>演習完了</h2>
+        <div class="score-display" id="scoreDisplay">0 / 30</div>
+        <div class="result-commentary" id="resultCommentary"></div>
+        <button class="restart-btn" onclick="restartQuiz()">もう一度挑戦する</button>
+    </div>
+</div>
+
+<script>
+const rawQuizData = [
+    // 1-5: 言語構造・古代史・初期国家
+    {
+        type: "choice",
+        question: "1. 1443年に創制された「訓民正音（ハングル）」がアルファベット表記と異なり、漢字とのアクセス性が極めて高いとされる言語構造的理由は何か？",
+        options: [
+            "漢字の偏と旁をそのまま組み合わせた「字喃（チュノム）」形式を採用したため",
+            "「받침（パッチム）」という終音機能により「漢字1字＝ハングル1字」の音節構造が可視化されやすいため",
+            "口訣や吏読といった読解技法を完全に廃止し、中国語の発音と直結させたため",
+            "漢字の筆順とハングルの初音表記を機械的に一致させる法制化を行ったため"
+        ],
+        correct: 1,
+        explanation: "ハングルは「漢字1字＝ハングル1字」の対応構造を持ち、特にパッチム（終音）によって漢字音の音節構造を的確かつ可視的に表現できるため、漢字文献へのアクセス性を高く保つ要因となりました。"
+    },
+    {
+        type: "choice",
+        question: "2. 7世紀前半、高句麗が隋・唐の大遠征を退けることができた構造的要因として最も適切なものはどれか？",
+        options: [
+            "遼東地域の山城防衛網を中心とした緻密な防御戦術と敵の補給線を絶つ持久戦",
+            "新羅および百済との三国共同同盟による挟撃体制の構築",
+            "唐の太宗（李世民）に対する冊封体制の受容による平和外交交渉の結実",
+            "柔然（ルウラン）の主力部隊を前線に配置したことによる圧勝"
+        ],
+        correct: 0,
+        explanation: "高句麗は遼東地域等に山城網を張り巡らせ、隋・唐の大軍を足止めして補給線を遮断し、薩水の大捷等で敵を自滅・撤退に追い込みました。"
+    },
+    {
+        type: "choice",
+        question: "3. 『三国遺事』に記録された檀君神話が示す、古朝鮮（Gojoseon）形成期の歴史的実態として最も妥当な解釈はどれか？",
+        options: [
+            "青銅器文化を背景とする政治勢力が、農耕社会の集団を統合しながら国家体系を形成した過程の反映",
+            "中国の漢王朝が設置した郡県がそのまま神話に形を変えたもの",
+            "鉄器時代末期に現れた単一の絶対君主が1500年間実在した事実の記録",
+            "新羅が三国を統一した後に、新羅王室の権威づけのために創作した架空の言説"
+        ],
+        correct: 0,
+        explanation: "檀君神話（ヨモギやニンニク、熊と虎の説話）は、青銅器文化と農耕社会を基盤とする部族統合と、古朝鮮という最初の中央集権的勢力の形成過程を象徴しています。"
+    },
+    {
+        type: "choice",
+        question: "4. 三国時代（高句麗・百済・新羅）の初期に共通してみられた「部体制（bu-system）」から中央集権国家への変容過程を示す特徴はどれか？",
+        options: [
+            "各部（貴族連盟）の自主性が高まり、国王の位置づけが完全に名目化した",
+            "各部の首長（領主）層が中央貴族として身分制（骨品制や官位制）に組み込まれ、王権の下で統治機構が再編された",
+            "部体制の伝統を保つため、地方行政単位（郡県）の設置を一切行わなかった",
+            "地方の部首長が全員漢人の官僚に置き換えられた"
+        ],
+        correct: 1,
+        explanation: "諸部（5部・6部など）の自治的独立性は、王権の強化とともに中央官位制や貴族身分構造へと吸収され、中央集権的律令国家へと脱皮していきました。"
+    },
+    {
+        type: "choice",
+        question: "5. 新羅の社会構造を特徴づける「骨品制（Golpum System）」に関する説明として正しいものはどれか？",
+        options: [
+            "血統に基づいて聖骨・真骨・頭骨（頭品）に分けられ、昇進可能な官位のみならず家屋の大きさや衣服の色まで厳格に規制した制度",
+            "能力主義の科挙試験によって自由に身分を昇格させることができる開放的制度",
+            "高句麗からの渡来人のみに適用された特別税制の身分枠組み",
+            "地方の農民だけに適用され、首都の貴族層は適用を免除された制度"
+        ],
+        correct: 0,
+        explanation: "骨品制は新羅の身分制であり、政治的官位の限界だけでなく日常生活の調度や衣服の色、居住規模に及ぶまで身分階層を強力に規定しました。"
+    },
+
+    // 6-10: 古代・南北国・中世高麗・近世
+    {
+        type: "choice",
+        question: "6. 7世紀後半の新羅による「三国統一」の評価において、対唐戦争（買肖城・伎伐浦の戦い等）を重視する俯瞰的視点はなぜ重要か？",
+        options: [
+            "唐の軍事的介入を退け、大同江から元山湾以南の自立的な民族的・領土的境界を確定させた自主的側面を明らかにするため",
+            "唐の安東都護府を全面的に受け入れ、新羅が唐の直接統治下に入ったことを裏付けるため",
+            "百済と高句麗の復興運動を唐が支援した理由を説明するため",
+            "新羅が日本列島の倭軍と結んで唐を完全に滅ぼした歴史的事実を示すため"
+        ],
+        correct: 0,
+        explanation: "新羅の統一は単なる「唐の力を借りた他律的併合」ではなく、後に唐の全半島支配の企みを激しい対唐戦争で撃砕して勝ち取った「自主的境界の確立」という側面を持ちます。"
+    },
+    {
+        type: "choice",
+        question: "7. 698年に大祚栄（Dae Jo-yeong）によって建国された渤海（Balhae）に関する歴史的解釈として適切なものはどれか？",
+        options: [
+            "高句麗の遺民と靺鞨（Mohe）人で構成され、高句麗継承意識を強く保持しながら東アジアの「海東盛国」へと発展した",
+            "唐の完全な属国であり、独自の元号や文化を持たなかった",
+            "新羅と完全に一体化し、南北国時代という概念を否定する根拠となった",
+            "契丹によって建国され、ハングルを公用語として採用した"
+        ],
+        correct: 0,
+        explanation: "渤海は高句麗遺民が主体となって建国され、日本への国書等でも「高句麗国王」を自称するなど強固な継承意識を持ち、南北国時代の一翼を担いました。"
+    },
+    {
+        type: "choice",
+        question: "8. 高麗の第4代国王・光宗（Gwangjong）が推進した王権強化策として最も重要な二大改革は何か？",
+        options: [
+            "奴婢弁正法（奴婢按検法）による豪族の経済・軍事的基盤の抑制と、科挙制度の導入による新進官僚の登用",
+            "武臣政権の確立と江華島への都の移転",
+            "朱子学の国教化と訓民正音の創制",
+            "新羅骨品制の完全復活と高句麗系豪族の処刑"
+        ],
+        correct: 0,
+        explanation: "光宗は「奴婢按検法」で豪族の私兵・経済基盤を削ぎ、「科挙（958年）」を導入して儒教的教養を持つ新進官僚を登用し、中央集権を完成させました。"
+    },
+    {
+        type: "choice",
+        question: "9. 13世紀における「高麗・モンゴル戦争」およびその後の元干渉期に関する歴史的評価として適切なものはどれか？",
+        options: [
+            "約30年に及ぶ江華島での抵抗後、和議を結び元の婿邦（ブマ国）となりつつも、自国の王朝・制度・固有の風俗を維持した",
+            "元の完全な直轄地となり、高麗の王統は完全に断絶・消滅した",
+            "高麗がモンゴル帝国全土を逆に支配し、大元ウルスの主導権を握った",
+            "元の支配下で漢文が完全に廃止され、モンゴル文字が朝鮮半島の唯一の文字となった"
+        ],
+        correct: 0,
+        explanation: "高麗は激しい抗戦の末に元と和議を結び、高麗の国号・王統・独自の法的風俗を維持する「不改土風」の取り決めを守り抜き、主権を保ちました。"
+    },
+    {
+        type: "choice",
+        question: "10. 朝鮮王朝（Joseon）の創業（1392年）において、李成桂（Yi Seong-gye）とともに主導的役割を果たした「鄭道伝（Jeong Do-jeon）」らの思想的基盤は何か？",
+        options: [
+            "仏教中心の国家建設を目指す禅宗思想",
+            "高麗末期の腐敗した仏教を批判し、民本主義と道徳的政治を掲げる朱子学（性理学）",
+            "西洋のキリスト教思想と近代社会主義",
+            "道教の不老長生説に基づく神仙思想"
+        ],
+        correct: 1,
+        explanation: "新進士大夫（鄭道伝ら）は朱子学を革新思想として受容し、高麗末の寺院財産の肥大化や腐敗を批判して、儒教的民本主義に基づく朝鮮王朝の基盤を築きました。"
+    },
+
+    // 11-15: 史料言語・東アジア国際秩序・実学・近代的改革
+    {
+        type: "choice",
+        question: "11. 朝鮮時代における「口訣（Gugyeol）」や「吏読（Idu）」と「訓民正音」の違いに関する説明として正確なものはどれか？",
+        options: [
+            "口訣や吏読は漢文の文脈・語順を補う借字表記法（音訓借）であり、訓民正音は固有語の発音を自在に音節単位で記せる独自の音素文字である",
+            "口訣は絵文字であり、吏読はハングルの別の名称である",
+            "訓民正音は両班層のみが使用し、吏読は農民層の日常文字であった",
+            "口訣・吏読はアルファベットから派生し、訓民正音は漢字の筆順から作られた"
+        ],
+        correct: 0,
+        explanation: "口訣・吏読は漢字の音や訓を借りて朝鮮語の助詞や語尾を表記する技法（漢文解読補助）であり、訓民正音は音節構造を正確に自立表記できる独自の文字体系です。"
+    },
+    {
+        type: "choice",
+        question: "12. 16世紀末の「壬辰倭乱（文禄・慶長の役）」が東アジア国際秩序（明・清・朝鮮・日本）に及ぼした構造的変動として正しいものはどれか？",
+        options: [
+            "明の国力が著しく疲弊して東北アジアで女真族（後金・後の清）が台頭し、明清交替の遠因となった",
+            "朝鮮が日本の領土となり、江戸幕府が平壌に設置された",
+            "東アジアの冊封体制が完全に崩壊し、全域でハングルが国際共通語となった",
+            "明が日本列島を占領し、東アジア全域が単一の帝国に統一された"
+        ],
+        correct: 0,
+        explanation: "秀吉の朝鮮侵略を防衛するため大量の兵力を出兵させた明は財政的・軍事的に疲弊し、これがヌルハチ率いる女真族の台頭と明清交替劇を決定づけました。"
+    },
+    {
+        type: "choice",
+        question: "13. 朝鮮王朝後期の「実学（Sirhak）」運動（丁若鏞ら）が掲げた思想的転換のコアは何か？",
+        options: [
+            "空理空論に傾斜した朱子学の観念論を批判し、「利用厚生」「実事求是」に基づく土地制度・税制・技術の現実的改革を目指した",
+            "西洋文化を全面的に拒絶し、高麗時代の仏教国家へ回帰することを目指した",
+            "清国への無条件の屈服と、朝鮮王朝の即時解体を主張した",
+            "漢字の使用を禁止し、すべての出版物をハングル専用に限定することのみを主張した"
+        ],
+        correct: 0,
+        explanation: "実学者（茶山・丁若鏞や朴趾源ら）は、概念的な道徳論に偏重した性理学の限界を突いて、農村復興・商業育成・技術導入など客観的・実証的な改革論を展開しました。"
+    },
+    {
+        type: "choice",
+        question: "14. 1894年の「東学農民革命（甲午農民戦争）」における農民軍の主な要求（弊政改革案）の歴史的性質はどれか？",
+        options: [
+            "反封建（奴婢の解放・賤民差別の撤廃・不当な雑税の禁止）と反侵略（外勢・特に日清の介入排斥）を融合させた内発的民主運動",
+            "日本の植民地支配を全面的に歓迎し、自ら日本への併合を求めた運動",
+            "朝鮮王朝の儒教秩序を一層強化し、あらゆる外国貿易を永久封鎖することを目指した運動",
+            "王室を即座に処刑し、資本主義的共和制を導入することだけを目的とした運動"
+        ],
+        correct: 0,
+        explanation: "東学農民運動は、封建的特権階級による搾取に抗する「反封建」の社会的要求と、列強（殊に日本）の侵略に対する「反帝・反外勢」の民族的要求が結合した決定的な内発的運動でした。"
+    },
+    {
+        type: "choice",
+        question: "15. 大韓帝国期の1894年「甲午改革」および1896年創刊の『独立新聞』が朝鮮文字史において果たす歴史的転換点は何か？",
+        options: [
+            "従来の「諺文（オンムン）」と呼ばれた文字を「国文」として公式認定し、横書き・ハングル専用などの公的採用を進めたこと",
+            "漢字の使用を一切犯罪として禁止し、ハングルのみを法律文章としたこと",
+            "英語を第二国語として公用語化し、ハングルと統合させたこと",
+            "清国との伝統的冊封関係を維持するために漢文のみを正文と再指定したこと"
+        ],
+        correct: 0,
+        explanation: "甲午改革においてハングルは「国文」として公式に認定され、徐載弼らの『独立新聞』の発行などを通じて、近代的な民族意識と言語の公的定着が一気に進みました。"
+    },
+
+    // 16-20: 近代・植民地期・言語ナショナリズム
+    {
+        type: "choice",
+        question: "16. 1897年に高宗が宣誓して創始した「大韓帝国（Daehan jeguk）」および光武改革のねらいとして最も適切なものはどれか？",
+        options: [
+            "清に対する伝統的冊封関係を完全に断ち切り、対等な自主独立国家（皇帝国）として近代化（旧本新参）を図ること",
+            "日本帝国の属国であることを国際社会に宣言すること",
+            "立憲君主制を即座に導入し、国王の権限を完全に剥奪すること",
+            "伝統的な農耕生活を守るため、鉄道や電信などの近代技術を一切撤去すること"
+        ],
+        correct: 0,
+        explanation: "大韓帝国の樹立は、清からの完全な独立を「皇帝」即位によって象徴し、自主的な自強運動（旧本新参の原則による殖産興業・教育・軍制改革）を推進しようとする試みでした。"
+    },
+    {
+        type: "choice",
+        question: "17. 1919年「三一独立運動」を受けた朝鮮総督府の「文化統治」に関する相対的な構造的解釈として正しいものはどれか？",
+        options: [
+            "武力統治を完全撤廃し、朝鮮の完全な立法国会制定を認めた政策",
+            "「朝鮮語及漢文」科目を即座に廃止し、日本語のみを徹底強制した政策",
+            "朝鮮語新聞の発行等を許容しつつも、民族運動の分断と親日派育成、高度な治安管理を目指した統治変容",
+            "南北の地域差を利用して文字表記を分離指定した分断統治"
+        ],
+        correct: 2,
+        explanation: "文化統治は武断統治の限界を受け、言論・出版の限定的許容を通じた民族運動の懐柔・分断と、治安維持法による密かな監視強化を目的とした再編でした。"
+    },
+    {
+        type: "choice",
+        question: "18. 1930年代後半から行われた「皇民化政策」における朝鮮語の扱いに関する正確な記述はどれか？",
+        options: [
+            "1938年の第三次朝鮮教育令により学校教育での「朝鮮語」科目が全廃・志願化され、日本語の使用が徹底強制された",
+            "朝鮮語と日本語を完全に対等な公用語として終戦まで維持した",
+            "朝鮮語学会の活動を公的に表彰し、満州国での公用語として普及させた",
+            "ハングルを用いた神社参拝の祝詞作成を義務付けた"
+        ],
+        correct: 0,
+        explanation: "日中戦争の勃発（1937年）以降、植民地当局は「同化・皇民化」を加速させ、1938年には学校教育での「朝鮮語」科目を実質全廃・廃止へ追い込みました。"
+    },
+    {
+        type: "choice",
+        question: "19. 20世紀初頭、周時経（Ju Si-gyeong）らによって「한글（ハングル）」と命名され、1930年に「諺文綴字法」が制定される流れの歴史的意義は何か？",
+        options: [
+            "近代的な国語学研究の確立と、植民地抑圧下における言語的民族アイデンティティの構造化",
+            "日本総督府による朝鮮語の完全消滅運動の成功を示す証拠",
+            "中国語の音韻体系への完全な合流を目指した言語改変",
+            "ハングルを廃止してローマ字へ移行するための暫定措置"
+        ],
+        correct: 0,
+        explanation: "周時経や朝鮮語研究会（後の朝鮮語学会）は、「大きい・正しい文字」を意味する「ハングル」という呼称を定着させ、綴字法の統一を通じて民族の言論・文化の拠点を守り抜きました。"
+    },
+    {
+        type: "choice",
+        question: "20. 解放後（1945年以降）の南北における文字政策および言語ナショナリズムの相違・共通点として正しいものはどれか？",
+        options: [
+            "朝鮮民主主義人民共和国は1949年に漢字を全廃してハングル専用化を進め、韓国は漢字混用と専用の間で揺れたが、双方自国語を「우리말（我らの言葉）」と称する意識を共有する",
+            "韓国は一貫して漢字を禁止し、朝鮮民主主義人民共和国のみが伝統的な漢字繁体字教育を国家義務とした",
+            "南北ともに1950年代に独自のローマ字表記（Quốc ngữ様式）を採用した",
+            "朝鮮民主主義人民共和国は漢文を正文書とし、韓国は即座に完全なハングル専用化を法制化・完成させた"
+        ],
+        correct: 0,
+        explanation: "朝鮮民主主義人民共和国は1949年に漢字廃止・ハングル専用化を断行。韓国は揺れ動きを経つつも文字変遷を辿りましたが、共に自民族言語を「우리말」と呼び言語ナショナリズムを共有します。"
+    },
+
+    // 21-25: 史料批判・近現代史・朝鮮民主主義人民共和国の史観
+    {
+        type: "choice",
+        question: "21. 「旧植民地資料」の解読において、現代の研究者に高度な漢字能力や旧仮名遣いの解読力が求められる構造的理由は何か？",
+        options: [
+            "公文書等の多くが「日本人が日本語（旧字体・文語体・旧仮名遣い）」または漢字混用文で作成したものであるため",
+            "当時の朝鮮総督府がハングルを完全に解読不能な暗号文字に変形させたため",
+            "植民地期の資料がすべて中国の明・清時代の漢文で作成されているため",
+            "朝鮮民主主義人民共和国が作成した秘密公文書がすべて繁体字漢文で記されていたため"
+        ],
+        correct: 0,
+        explanation: "植民地期の旧公文書は総督府の日本人官吏等によって旧漢字・旧仮名遣いの日本語文言で作成されており、これらを批判的に解読するには高度な漢字文体解読能力が必須となります。"
+    },
+    {
+        type: "choice",
+        question: "22. 朝鮮戦争（1950-1953）の史的理解において、単一の冷戦史観を超えた多角的な視点として重要な捉え方はどれか？",
+        options: [
+            "大国間の対立のみによって一方的に引き起こされた受動的摩擦に過ぎないという視点",
+            "米ソ冷戦というグローバルな構造と、植民地期から蓄積された内発的な自主国家建設運動・社会対立が結合した重層的現象であるという視点",
+            "南北双方とも分断永久化を当初からの主要目標としていたという統一的解釈",
+            "近代化論の観点から東アジアの経済成長を促す必然的試練であったとする解釈"
+        ],
+        correct: 1,
+        explanation: "朝鮮戦争は米ソ冷戦の国際構造と、解放後の自主国家樹立をめぐる内発的・局地的な社会対立（左右派の対立や民衆運動）が重層的に結合して生じた悲劇です。"
+    },
+    {
+        type: "choice",
+        question: "23. 1945年の解放直後、38度線による南北分割占領下で起きた「信託統治論争（モスクワ三相会議決定を巡る対立）」の史的帰結は何か？",
+        options: [
+            "自主的統一政府の樹立を目指す模索がありながらも、左右派の激しい対立と米ソ冷戦の深化により分断国家の形成へ加速した点",
+            "南北が即座に合意し、単一の永世中立国を樹立した点",
+            "国連が直接統治を行い、南北の軍隊を即座に完全解体した点",
+            "信託統治がそのまま100年間継続されることが決定した点"
+        ],
+        correct: 0,
+        explanation: "モスクワ決定（信託統治と臨時政府樹立）を巡り、反託（右派）と賛託/決定支持（左派・中間派）の対立が激化し、国内の分断構造が決定的に固定化していきました。"
+    },
+    {
+        type: "choice",
+        question: "24. 朝鮮民主主義人民共和国の正史において極めて重視される「抗日パルチザン闘争（金日成を中心とする満州・国境地域での武装闘争）」の歴史的意味付けは何か？",
+        options: [
+            "外勢に依存せず、自らの主力的武装闘争によって民族解放の正統性を勝ち取ったとする「自主・反帝」の史的根幹の提示",
+            "米国との共同軍事作戦のみによって朝鮮半島を解放したという主唱",
+            "日本総督府との公式な平和条約締結によって自治権を獲得したという主張",
+            "中国共産党の完全な指導下で自らの民族的主体性を一切放棄した闘争"
+        ],
+        correct: 0,
+        explanation: "朝鮮民主主義人民共和国の歴史叙述では、1930年代の抗日パルチザン闘争が朝鮮革命と国家建国の直接の「歴史的ルーツ（反帝・自主の伝統）」として最高度に位置づけられます。"
+    },
+    {
+        type: "choice",
+        question: "25. 朝鮮民主主義人民共和国における「主体（チュチェ）思想」が1950〜60年代にかけて確立された歴史的・国際政治的背景として正確なものはどれか？",
+        options: [
+            "中ソ対立の激化や事大主義への批判を背景に、政治における自主・経済における自立・国防における自衛を掲げた思想的立脚",
+            "資本主義市場経済を全面的に導入し、米国との自由貿易協定を結ぶための理論",
+            "ソ連の指示に無条件に従い、自国の決定権をモスクワに委ねるための思想",
+            "漢字文化圏への復帰と中国皇帝への冊封関係の再構築を目指した思想"
+        ],
+        correct: 0,
+        explanation: "チュチェ思想は、中ソの論争や干渉を排し、朝鮮の現実に即した「自主・自立・自衛」の路線を確立しようとする強固なナショナリズムと自主の要求から生まれました。"
+    },
+
+    // 26-29: 植民地期検証・現代南北関係・歴史理論・外交
+    {
+        type: "choice",
+        question: "26. いわゆる「植民地近代化論」に対する、歴史構造的な批判的視点として最も妥当なアプローチはどれか？",
+        options: [
+            "インフラ整備や生産量増加の事実を認めつつも、それらが日本本国の利害や侵略戦争の補給基地化のために構造化され、民衆の主体的発展や人権が徹底抑圧された事実を捉える視点",
+            "植民地期に朝鮮半島では道路や学校が一切作られず、経済データもすべて偽造であったとする視点",
+            "日本の統治によって朝鮮民族は史上最大の幸福を享受し、分断の責任も日本にあるという解釈",
+            "近代化はすべて欧米のキリスト教宣教師のみによって達成され、日本も朝鮮も無関係であったとする解釈"
+        ],
+        correct: 0,
+        explanation: "単なる「開発か抑圧か」という二元論を超え、統計的数値の裏にある「目的の植民地性・従属的構造」と「民衆の主体的被害・歪曲」を多角的に把握することが重要です。"
+    },
+    {
+        type: "choice",
+        question: "27. 1972年の「7・4南北共同声明」で提示された、分断克服のための「統一三原則」とは何か？",
+        options: [
+            "自主・平和・民族大団結",
+            "武力統一・一党制・漢字復活",
+            "外勢依存・段階的分離・東西冷戦の維持",
+            "吸収統一・市場化・ローマ字化"
+        ],
+        correct: 0,
+        explanation: "7・4南北共同声明は、外勢の干渉を受けない「自主」、武力行使を行わない「平和」、思想や制度の違いを超えた「民族大団結」の三原則を南北で初めて合意しました。"
+    },
+    {
+        type: "choice",
+        question: "28. かつて日本のアカデミズム（植民史観）が提唱した「停滞性論」や「他律性論」に対する、戦後の朝鮮史学の克服アプローチ（内在的発展論など）の核心は何か？",
+        options: [
+            "朝鮮史は外部からの侵略のみで動いたのではなく、商業の発達や身分制の解体など独自の内在的発展の動理が存在したことを実証的に明らかにした点",
+            "朝鮮半島には古代から歴史が存在しなかったことを認めた点",
+            "すべての歴史的発展は西洋からの植民地化によってのみ可能になったと結論づけた点",
+            "植民史観のデータをそのまま受け入れ、他律性こそが民族の誇りであると捉え直した点"
+        ],
+        correct: 0,
+        explanation: "「停滞性論（中世不在論）」や「他律性論」に対し、南北双方の史学は朝鮮社会内部の萌芽（商業資本、農業技術、新進階級の台頭など）を実証し、自律的歴史発展を立証しました。"
+    },
+    {
+        type: "choice",
+        question: "29. 前近代の東アジアにおける「冊封・朝貢体制」に関する、現代学術における実質的な解釈はどれか？",
+        options: [
+            "形式的な君臣関係（外交的儀礼）を授与されることで、実質的な内政の完全な自主性と安全保障、経済的貿易利害を確保する高等外交",
+            "中国皇帝が朝鮮王の日常の食事や法律をすべて直接決定する完全な奴隷的支配",
+            "毎年全人口の半分を中国へ奴隷として差し出すことを義務付けた制度",
+            "軍事的武力行使によってのみ維持され、経済的貿易の要素を一切含まない制度"
+        ],
+        correct: 0,
+        explanation: "冊封・朝貢は「形式上の服属」を装うことで中原の王朝との武力衝突を回避し、実質的な内政の独立と経済的賜物・貿易（利潤）を獲得する実利的外交構造でした。"
+    },
+
+    // 30: 選択問題（世宗大王と訓民正音）
+    {
+        type: "choice",
+        question: "30. 15世紀、朝鮮王朝第4代国王の世宗（Sejong）が「訓民正音（ハングル）」を創制した最も重要な歴史的意図・背景は何か？",
+        options: [
+            "中国（明）との冊封関係を即座に破棄し、外交文章から漢文を完全に排除するため",
+            "両班（貴族階級）の権威を高めるために、特権階級専用の暗号文字を作ること",
+            "日本や西洋との貿易交渉専用の外国語翻訳ツールとして普及させるため",
+            "難解な漢字を解せない一般民衆（百姓）の識字率を高め、自らの思いや冤罪を言葉で訴えられるようにする民本主義的配慮"
+        ],
+        correct: 3,
+        explanation: "世宗大王は、難しい漢文を読めない民衆が法を知らずに処罰されたり、自身の思いを表現できなかったりする状況を憂慮し、「民に教える正しい音」として訓民正音を創制しました。これは儒教的民本主義に基づく画期的な文化・言語改革でした。"
+    }
+];
+
+let processedQuizData = [];
+let currentQuestion = 0;
+let score = 0;
+
+// 正解の肢の場所（インデックス）をランダム化する関数（選択肢問題のみ）
+function shuffleOptionsAndInit() {
+    processedQuizData = rawQuizData.map(q => {
+        if (q.type === "essay") {
+            return { ...q };
+        }
+        
+        const correctText = q.options[q.correct];
+        const shuffledOptions = [...q.options];
+        
+        for (let i = shuffledOptions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+        }
+        
+        const newCorrectIndex = shuffledOptions.indexOf(correctText);
+        
+        return {
+            type: q.type,
+            question: q.question,
+            options: shuffledOptions,
+            correct: newCorrectIndex,
+            explanation: q.explanation
+        };
+    });
+}
+
+function renderQuestion() {
+    const quizContainer = document.getElementById('quizContainer');
+    const q = processedQuizData[currentQuestion];
+    
+    // Update progress bar
+    const progressPercent = ((currentQuestion) / processedQuizData.length) * 100;
+    document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+    if (q.type === "choice") {
+        quizContainer.innerHTML = `
+            <div class="quiz-card">
+                <div class="question-number">Question ${currentQuestion + 1} of ${processedQuizData.length} (選択問題)</div>
+                <div class="question-title">${q.question}</div>
+                <div class="options-group">
+                    ${q.options.map((opt, idx) => `
+                        <button class="option-btn" onclick="selectOption(${idx})">${opt}</button>
+                    `).join('')}
+                </div>
+                <div class="explanation-box" id="explanationBox">
+                    <div class="explanation-title">【講師解説・俯瞰的視点】</div>
+                    <div class="explanation-text">${q.explanation}</div>
+                </div>
+                <div class="nav-controls">
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+                        ${currentQuestion === processedQuizData.length - 1 ? '演習結果を見る' : '次の演習問題へ'}
+                    </button>
+                </div>
+            </div>
+        `;
+    } else if (q.type === "essay") {
+        quizContainer.innerHTML = `
+            <div class="quiz-card">
+                <div class="question-number">Question ${currentQuestion + 1} of ${processedQuizData.length} (記述・論述問題)</div>
+                <div class="question-title">${q.question}</div>
+                <div style="font-size: 0.88rem; color: #E63946; font-weight: 700; margin-bottom: 10px;">
+                    ※指定キーワード【${q.keywords.join('】【')}】を必ず含めて130字以内で記述してください。
+                </div>
+                <div class="essay-container">
+                    <textarea id="essayInput" class="essay-textarea" maxlength="130" oninput="updateCharCount()" placeholder="ここにあなたの考えを記述してください（130字以内）..."></textarea>
+                    <div class="char-count" id="charCount">0 / 130字</div>
+                    <button id="submitEssayBtn" class="submit-essay-btn" onclick="submitEssay()">回答を提出して解説・模範解答を見る</button>
+                </div>
+                <div class="explanation-box" id="explanationBox">
+                    <div class="model-answer-title">【模範解答例】</div>
+                    <div class="explanation-text" style="white-space: pre-wrap;">${q.modelAnswer}</div>
+                    <div class="explanation-title" style="margin-top: 15px;">【講師による出題意図と俯瞰的視点】</div>
+                    <div class="explanation-text">${q.explanation}</div>
+                </div>
+                <div class="nav-controls">
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+                        演習結果を見る
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function updateCharCount() {
+    const inputArea = document.getElementById('essayInput');
+    const charCount = document.getElementById('charCount');
+    if (inputArea && charCount) {
+        charCount.innerText = `${inputArea.value.length} / 130字`;
+    }
+}
+
+function selectOption(index) {
+    const q = processedQuizData[currentQuestion];
+    const buttons = document.querySelectorAll('.option-btn');
+    const explanationBox = document.getElementById('explanationBox');
+    const nextBtn = document.getElementById('nextBtn');
+
+    buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === q.correct) {
+            btn.classList.add('correct');
+        }
+        if (idx === index && index !== q.correct) {
+            btn.classList.add('incorrect');
+        }
+    });
+
+    if (index === q.correct) {
+        score++;
+    }
+
+    explanationBox.style.display = 'block';
+    nextBtn.style.display = 'inline-block';
+}
+
+function submitEssay() {
+    const inputArea = document.getElementById('essayInput');
+    const submitBtn = document.getElementById('submitEssayBtn');
+    const explanationBox = document.getElementById('explanationBox');
+    const nextBtn = document.getElementById('nextBtn');
+    const q = processedQuizData[currentQuestion];
+
+    const text = inputArea.value.trim();
+
+    if (text === "") {
+        alert("提出前にあなたの考えを入力してください。");
+        return;
+    }
+
+    // キーワードチェック
+    const missingKeywords = q.keywords.filter(kw => !text.includes(kw));
+    if (missingKeywords.length > 0) {
+        alert(`以下の指定キーワードが含まれていません。\n指定キーワード：【${missingKeywords.join('】【')}】`);
+        return;
+    }
+
+    inputArea.disabled = true;
+    submitBtn.disabled = true;
+    submitBtn.style.backgroundColor = "#A0AEC0";
+    
+    // 記述問題の提出を1点としてスコアに加算
+    score++;
+
+    explanationBox.style.display = 'block';
+    nextBtn.style.display = 'inline-block';
+}
+
+function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < processedQuizData.length) {
+        renderQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    document.getElementById('progressBar').style.width = '100%';
+    document.getElementById('quizContainer').style.display = 'none';
+    
+    const resultCard = document.getElementById('resultCard');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const commentary = document.getElementById('resultCommentary');
+
+    resultCard.style.display = 'block';
+    scoreDisplay.innerText = `${score} / ${processedQuizData.length}`;
+
+    let commentHtml = "";
+    if (score === 30) {
+        commentHtml = `<strong>【最高評価】見事な学術的達成です！</strong><br>ハングルの音節構造や文字史的特質から、古代東アジアの多角的な国際関係、中世の社会制度、さらには植民地統治下の日本語公文書・朝鮮民主主義人民共和国の自主・反帝の論理・現代冷戦構造まで、多言語史料のクロスリファレンスを通じた偏りのない立体的な歴史把握が完成しています。プロフェッショナルとしての素養が十分に磨かれています。`;
+    } else if (score >= 24) {
+        commentHtml = `<strong>【優秀】非常に高い洞察と学術理解度です。</strong><br>古代から現代に至る主要な歴史的文脈や、各時代の主体の思考・論理をしっかりと捉えられています。近現代における朝鮮民主主義人民共和国の主張や冷戦構造の重層性、多言語史料の対照に関する解説文を読み返すことで、より強固な相対的・俯瞰的思考力が身につきます。`;
+    } else if (score >= 15) {
+        commentHtml = `<strong>【標準】基本概念・史実の把握ができています。</strong><br>通史的な基礎知識は身についています。解説欄にある「朝鮮民主主義人民共和国の史学論理」「文化統治の裏の治安管理」「言語ナショナリズムの共存」といった深層の構造的解説を熟読し、なぜその視点が必要なのかを考察してみましょう。`;
+    } else {
+        commentHtml = `<strong>【講義復習の推奨】伸びしろが大きい状態です。</strong><br>単なる事実暗記に留まらず、なぜその歴史記述がなされたのかという「主体の視点」と「多言語史料（ハングル・日本語・英語）の交差点」を意識してみましょう。解説文を丁寧に紐解くこと自体が質の高い学びとなります。`;
+    }
+
+    commentary.innerHTML = commentHtml;
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    shuffleOptionsAndInit();
+    document.getElementById('resultCard').style.display = 'none';
+    document.getElementById('quizContainer').style.display = 'block';
+    renderQuestion();
+}
+
+// 初期化と初回レンダリング
+shuffleOptionsAndInit();
+renderQuestion();
+</script>
+</body>
+</html>
